@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="О проекте 'Поисковая оптимизация (SEO)'">
+  <title>О проекте | SEO Guide</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="../components/app-navbar-min.js" defer></script>
+  <script src="../components/app-footer-min.js" defer></script>
+  <script src="../components/contact-form-min.js" defer></script>
+  <script src="../components/sidebar-content-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="about"></site-header>
+
+  <main>
+    <div class="container">
+      <h1>О проекте</h1>
+      <p>Учебный проект в рамках курса «Технологии разработки интернет-приложений». Цель — закрепить навыки создания семантической, адаптивной и доступной вёрстки с использованием современного CSS‑фреймворка и веб‑компонентов.</p>
+      <h2>Тематика</h2>
+      <p>Практическое руководство по поисковой оптимизации (SEO): техническое SEO, семантический HTML, структурированные данные Schema.org и формат JSON-LD.</p>
+      <h3>Использованные технологии</h3>
+      <ul>
+        <li>HTML5, CSS3</li>
+        <li>CSS‑фреймворк: MVP.css</li>
+        <li>JavaScript (ES6+) – веб‑компоненты</li>
+        <li>Git и GitHub Pages</li>
+      </ul>
+      <p>Контент страниц основан на открытых источниках и официальной документации соответствующих технологий.</p>
+    </div>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Техническое SEO: скорость, индексация, файлы robots.txt и sitemap">
+  <title>Техническое SEO | SEO Guide</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="../components/app-navbar-min.js" defer></script>
+  <script src="../components/app-footer-min.js" defer></script>
+  <script src="../components/contact-form-min.js" defer></script>
+  <script src="../components/sidebar-content-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="technical-seo"></site-header>
+
+  <main>
+    <div class="container">
+      <article>
+        <h1>Техническое SEO</h1>
+        <picture>
+          <source srcset="../assets/img/tech-seo.webp" type="image/webp">
+          <img src="../assets/img/tech-seo.png" alt="Техническое SEO" fetchpriority="high" width="300">
+        </picture>
+        <p><strong>Техническое SEO</strong> — это фундамент, обеспечивающий поисковым роботам возможность эффективно сканировать и индексировать сайт. Без него даже самый качественный контент может остаться незамеченным.</p>
+        <h2>Ключевые факторы</h2>
+        <ul>
+          <li>Файл <code>robots.txt</code> — управление доступом роботов.</li>
+          <li>XML-карта сайта (<code>sitemap.xml</code>) — помогает поисковикам найти все страницы.</li>
+          <li>Скорость загрузки (Core Web Vitals) — LCP, FID, CLS.</li>
+          <li>SSL-сертификат и HTTPS — сигнал безопасности для Google.</li>
+          <li>Канонические URL (canonical) — предотвращение дублирования контента.</li>
+        </ul>
+        <p>Регулярный аудит технического состояния сайта с помощью Google Search Console и специализированных краулеров (Screaming Frog, Sitebulb) — обязательная практика современного SEO-специалиста.</p>
+      </article>
+    </div>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content current-page="technical-seo"></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+</body>
+</html>

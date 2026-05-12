@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Видео по поисковой оптимизации (SEO)">
+  <title>Видео | SEO Guide</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="../components/app-navbar-min.js" defer></script>
+  <script src="../components/app-footer-min.js" defer></script>
+  <script src="../components/contact-form-min.js" defer></script>
+  <script src="../components/sidebar-content-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="videos"></site-header>
+
+  <main>
+    <div class="container">
+      <h1>Видео по SEO</h1>
+      <p>Полезные видеоуроки для изучения основ поисковой оптимизации.</p>
+      <div class="video-wrapper">
+        <iframe width="560" height="425"
+                src="https://www.youtube.com/embed/Ob3wmc9pNso"
+                title="Видео: Основы SEO"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="width:100%; aspect-ratio: 16/9; border: none;">
+        </iframe>
+      </div>
+    </div>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+</body>
+</html>

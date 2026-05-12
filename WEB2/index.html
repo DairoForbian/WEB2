@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Руководство по поисковой оптимизации: техническое SEO, семантика, Schema.org, JSON-LD">
+  <title>SEO Guide — поисковая оптимизация</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="components/app-navbar-min.js" defer></script>
+  <script src="components/app-footer-min.js" defer></script>
+  <script src="components/info-card-min.js" defer></script>
+  <script src="components/contact-form-min.js" defer></script>
+  <script src="components/sidebar-content-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="home"></site-header>
+
+  <main>
+    <section class="hero text-center" style="padding: 2rem 1rem;">
+      <h1>Поисковая оптимизация (SEO)</h1>
+      <p style="font-size:1.1rem; color:var(--color-text-light); max-width:700px; margin:0 auto;">
+        Изучите ключевые аспекты SEO: техническую основу, семантическую вёрстку,
+        структурированные данные Schema.org и формат JSON-LD.
+      </p>
+    </section>
+
+    <section class="seo-grid">
+      <div class="container">
+        <h2 class="text-center">Основные разделы</h2>
+        <div class="grid">
+          <seo-card
+            data-name="Техническое SEO"
+            data-logo-webp="assets/img/tech-seo.webp"
+            data-logo-fallback="assets/img/tech-seo.png"
+            data-link="pages/technical-seo.html">
+            <span slot="description">Скорость загрузки, индексация, robots.txt, sitemap, HTTPS.</span>
+          </seo-card>
+
+          <seo-card
+            data-name="Семантика HTML"
+            data-logo-webp="assets/img/semantic.webp"
+            data-logo-fallback="assets/img/semantic.png"
+            data-link="pages/semantic-html.html">
+            <span slot="description">Использование заголовков, section, article, nav для лучшего ранжирования.</span>
+          </seo-card>
+
+          <seo-card
+            data-name="Schema.org"
+            data-logo-webp="assets/img/schema.webp"
+            data-logo-fallback="assets/img/schema.png"
+            data-link="pages/schema-org.html">
+            <span slot="description">Словари структурированных данных: Article, BreadcrumbList, FAQ, Product.</span>
+          </seo-card>
+
+          <seo-card
+            data-name="JSON-LD"
+            data-logo-webp="assets/img/jsonld.webp"
+            data-logo-fallback="assets/img/jsonld.png"
+            data-link="pages/json-ld.html">
+            <span slot="description">Внедрение структурированных данных через JSON-LD для Google.</span>
+          </seo-card>
+
+          <seo-card
+            data-name="Сравнение инструментов"
+            data-logo-webp="assets/img/tools.webp"
+            data-logo-fallback="assets/img/tools.png"
+            data-link="pages/comparison.html">
+            <span slot="description">Google Search Console, Ahrefs, Screaming Frog, Sitebulb и др.</span>
+          </seo-card>
+
+          <seo-card
+            data-name="Видео"
+            data-logo-webp="assets/img/video.webp"
+            data-logo-fallback="assets/img/video.png"
+            data-link="pages/videos.html">
+            <span slot="description">Обучающие ролики по SEO от экспертов.</span>
+          </seo-card>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+</body>
+</html>

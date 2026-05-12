@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сравнение инструментов для SEO: Google Search Console, Ahrefs, Screaming Frog, Sitebulb">
+  <title>Сравнение SEO‑инструментов | SEO Guide</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="../components/app-navbar-min.js" defer></script>
+  <script src="../components/app-footer-min.js" defer></script>
+  <script src="../components/contact-form-min.js" defer></script>
+  <script src="../components/sidebar-content-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="comparison"></site-header>
+
+  <main>
+    <div class="container">
+      <h1 style="text-align:center; margin-top:0;">Сравнение SEO‑инструментов</h1>
+      <div class="card" style="padding: 2rem;">
+        <div class="table-scroll">
+          <table class="striped" style="font-size: 0.95rem;">
+            <caption style="font-weight: 600; margin-bottom: 0.5rem; caption-side: top; text-align: left;">
+              Основные характеристики популярных инструментов для SEO‑аудита
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Характеристика</th>
+                <th scope="col">Google Search Console</th>
+                <th scope="col">Ahrefs</th>
+                <th scope="col">Screaming Frog</th>
+                <th scope="col">Sitebulb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Тип</td>
+                <td>Бесплатный сервис Google</td>
+                <td>Платный SaaS</td>
+                <td>Десктоп‑краулер</td>
+                <td>Десктоп‑краулер с облачной версией</td>
+              </tr>
+              <tr>
+                <td>Анализ внутренних факторов</td>
+                <td>Частично (трафик, индексация)</td>
+                <td>Да (аудит, поиск ошибок)</td>
+                <td>Да (детальный анализ всех страниц)</td>
+                <td>Да (визуализация структуры, приоритизация)</td>
+              </tr>
+              <tr>
+                <td>Анализ внешних ссылок</td>
+                <td>Только ссылки на сайт из Search Console</td>
+                <td>Да (Ahrefs Backlink Checker)</td>
+                <td>Нет</td>
+                <td>Нет (интеграция с другими сервисами)</td>
+              </tr>
+              <tr>
+                <td>Интеграция со структурированными данными</td>
+                <td>Да (отчеты о Rich Results)</td>
+                <td>Нет</td>
+                <td>Частично (извлечение микроразметки)</td>
+                <td>Частично (поддержка schema.org)</td>
+              </tr>
+              <tr>
+                <td>Цена</td>
+                <td>Бесплатно</td>
+                <td>от $99/мес</td>
+                <td>£199/год</td>
+                <td>от £11/мес</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content current-page="comparison"></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+</body>
+</html>

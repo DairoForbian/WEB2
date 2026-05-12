@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Обратная связь с автором проекта SEO Guide">
+  <title>Контакты | SEO Guide</title>
+
+  <link rel="preload" href="../assets/css/styles-min.css" as="style">
+  <link rel="stylesheet" href="../assets/css/styles-min.css">
+
+  <script src="../components/app-navbar-min.js" defer></script>
+  <script src="../components/app-footer-min.js" defer></script>
+  <script src="../components/contact-form-min.js" defer></script>
+  <script src="../components/sidebar-content-min.js" defer></script>
+  <script src="../components/app-modal-min.js" defer></script>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+</head>
+<body>
+  <site-header current-page="contact"></site-header>
+
+  <main>
+    <div class="container">
+      <h1>Свяжитесь с нами</h1>
+      <form id="contact-form" novalidate style="max-width: 500px;">
+        <label for="name">Ваше имя <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" required autocomplete="name" aria-required="true">
+
+        <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="contact-email" name="email" required autocomplete="email" aria-required="true">
+
+        <label for="message">Сообщение <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
+        <button type="submit" class="button primary" style="margin-top: 1rem;">Отправить</button>
+        <div id="form-feedback" role="alert" aria-live="polite" style="margin-top: 0.5rem;"></div>
+      </form>
+    </div>
+  </main>
+
+  <aside class="sidebar" aria-label="Навигация по разделам SEO">
+    <sidebar-content></sidebar-content>
+    <div class="container sidebar-bottom">
+      <subscribe-form></subscribe-form>
+    </div>
+  </aside>
+
+  <site-footer></site-footer>
+
+  <app-modal id="success-modal">
+    <h2 slot="title">Сообщение отправлено</h2>
+    <p>Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.</p>
+    <button class="button primary" onclick="document.getElementById('success-modal').close()">Закрыть</button>
+  </app-modal>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const feedback = document.getElementById('form-feedback');
+    const modal = document.getElementById('success-modal');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('contact-email');
+    const messageInput = document.getElementById('message');
+
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input.addEventListener('blur', () => {
+        input.classList.add('touched');
+      });
+      input.addEventListener('input', () => {
+        if (input.classList.contains('touched')) {
+          input.checkValidity();
+        }
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      [nameInput, emailInput, messageInput].forEach(input => input.classList.add('touched'));
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!name || !email || !message) {
+        feedback.textContent = 'Пожалуйста, заполните все поля.';
+        feedback.style.color = '#d93025';
+        return;
+      }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        feedback.textContent = 'Введите корректный email адрес.';
+        feedback.style.color = '#d93025';
+        return;
+      }
+
+      if (modal) modal.setAttribute('open', '');
+      feedback.textContent = '';
+      form.reset();
+      [nameInput, emailInput, messageInput].forEach(input => input.classList.remove('touched'));
+    });
+  </script>
+</body>
+</html>
